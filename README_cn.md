@@ -1,10 +1,9 @@
 # Jtik
-
-[中文版本](README_cn.md)
-## Introduction
-Jtik is a runtime dynamic hook framework on the Android platform that operates at the granularity of Java methods.Its implementation is based on [ART TI](https://source.android.google.cn/docs/core/runtime/art-ti) and it is capable of hooking both the application itself and system Java methods. Since it utilizes publicly available system interfaces and does not involve modifications to internal memory structures of the ART virtual machine, such as ArtMethod, it theoretically has strong compatibility.
-## Usage
-### 1. Initialization
+## 简介
+Jtik是一个在android平台，以Java方法为粒度的运行时动态hook框架。其实现基于 [ART TI](https://source.android.google.cn/docs/core/runtime/art-ti)，可以hook应用本身以及系统java方法。
+由于使用的是系统公开接口，不涉及ART虚拟机内部的ArtMethod等内存结构修改，理论上适配性会比较强。
+## 使用
+### 1. 初始化
 ```java
 //if you want hook framework method,like Activity.onCreate
 //JtikConfig.needHookSystemClass = true; 
@@ -12,8 +11,8 @@ Jtik is a runtime dynamic hook framework on the Android platform that operates a
 Jtik.init(context);
 ```
 
-### 2. hook target method：
-for example：as a class `Test`
+### 2. hook目标方法：
+举例：有一个类`Test`
 ```java
 public class Test {
    public int run(int a， int b){
@@ -21,7 +20,7 @@ public class Test {
    }
 }
 ```
-hook the method `run` of class `Test`：
+Hook 类`Test`的`run`方法：
 ```java
 Jtik.hook(classLoader.loadClass("Test").getDeclaredMethod("run", int.class, int.class),
 		new com.zxc.jtik.MethodHook.Builder().setMethodEnterListener((o, objects) -> {
@@ -34,9 +33,9 @@ Jtik.hook(classLoader.loadClass("Test").getDeclaredMethod("run", int.class, int.
 	    return 6;//the parameter value you chage to
         }).build());
 ```
-## Support platforms:
-Theoretically, Android 8.0+ are fully supported
-## Reference
+## 支持情况
+理论上Android 8.0+全支持
+## 参考
 1. [ART TI](https://source.android.google.cn/docs/core/runtime/art-ti)
 2. [slicer](https://cs.android.com/android/platform/superproject/main/+/main:tools/dexter/slicer/)
 3. [android studio](https://cs.android.com/android-studio/platform/tools/base/+/mirror-goog-studio-main:deploy/agent/native/transform/)
