@@ -53,4 +53,4 @@ Jtik.hook(classLoader.loadClass("Test").getDeclaredMethod("run", int.class, int.
 1. [ART TI](https://source.android.google.cn/docs/core/runtime/art-ti)
 2. [slicer](https://cs.android.com/android/platform/superproject/main/+/main:tools/dexter/slicer/)
 3. [android studio](https://cs.android.com/android-studio/platform/tools/base/+/mirror-goog-studio-main:deploy/agent/native/transform/)
-4. [JVMTM Tool Interface](https://docs.oracle.com/javase/7/docs/platform/jvmti/jvmti.html#SpecificationIntro)
+4. [JVMTI Tool Interface](https://docs.oracle.com/javase/7/docs/platform/jvmti/jvmti.html#SpecificationIntro)
