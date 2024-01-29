@@ -4,7 +4,22 @@
 ## Introduction
 Jtik is a runtime dynamic hook framework on the Android platform that operates at the granularity of Java methods.Its implementation is based on [ART TI](https://source.android.google.cn/docs/core/runtime/art-ti) and it is capable of hooking both the application itself and system Java methods. Since it utilizes publicly available system interfaces and does not involve modifications to internal memory structures of the ART virtual machine, such as ArtMethod, it theoretically has strong compatibility.
 ## Usage
-### 1. Initialization
+### 1. Add dependency
+[![](https://jitpack.io/v/chancerly/jtik.svg)](https://jitpack.io/#chancerly/jtik)
+
+```gradle
+repositories {
+        maven { url 'https://jitpack.io' }
+}
+```
+
+ ```gradle
+dependencies {
+    implementation 'com.github.chancerly:jtik:0.0.1-Beta'
+}
+```
+
+### 2. Initialization
 ```java
 //if you want hook framework method,like Activity.onCreate
 //JtikConfig.needHookSystemClass = true; 
@@ -12,7 +27,7 @@ Jtik is a runtime dynamic hook framework on the Android platform that operates a
 Jtik.init(context);
 ```
 
-### 2. hook target method：
+### 3. hook target method：
 for example：as a class `Test`
 ```java
 public class Test {
