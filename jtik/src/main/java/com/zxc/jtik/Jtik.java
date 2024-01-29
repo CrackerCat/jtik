@@ -23,6 +23,9 @@ public class Jtik {
 
     private static boolean sInitialized = false;
     public static synchronized boolean init(Context context) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O){
+            return false;
+        }
         if (sInitialized) {
             return false;
         }

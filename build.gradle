@@ -5,7 +5,7 @@ plugins {
 }
 
 ext {
-    minSdk = 26
+    minSdk = 21
     compileSdk = 34
     targetSdk = 31
     ndkVersion = "25.2.9519653"
